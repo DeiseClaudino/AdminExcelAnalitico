@@ -18,20 +18,24 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($relatorio as $relatorio)
+            @foreach($relatorio as $rel)
                 <tr>
-                    <th scope="row">{{$relatorio->id_reg}}</th>
-                    <td>{{$relatorio->nome}}</td>
-                    <td>{{$relatorio->data_nasc}}</td>
-                    <td>{{$relatorio->email}}</td>
-                    <td>{{$relatorio->estado}}</td>
-                    <td>{{$relatorio->cidade}}</td>
-                    <td>{{$relatorio->endereco}}</td>
-                    <td>{{$relatorio->data_cadastro}}</td>
-                </tr>
-            </tbody>
+                    <th scope="row">{{$rel->id_reg}}</th>
+                    <td>{{$rel->nome}}</td>
+                    <td>{{$rel->data_nasc}}</td>
+                    <td>{{$rel->email}}</td>
+                    <td>{{$rel->estado}}</td>
+                    <td>{{$rel->cidade}}</td>
+                    <td>{{$rel->endereco}}</td>
+                    <td>{{$rel->data_cadastro}}</td>
+                </tr> 
             @endforeach
+
+            </tbody>
         </table>
+        <nav class="page-navigation">
+            {{ $relatorio->links() }}
+        </nav>
     </div>
 </div>
 @endsection

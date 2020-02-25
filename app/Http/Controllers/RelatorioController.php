@@ -22,8 +22,9 @@ class RelatorioController extends Controller
         ->when($request->has('data_cadastro'), function($query) use($request){
             $query->whereDate('data_cadastro', $request->nome);
         })
+        ->orderBy('nome', 'asc')
         ->orderBy('data_cadastro', 'desc')
-        ->get();
+        ->paginate(10);
 
         return view('listRelatorio')->withRelatorio($relatorios);
     }
@@ -41,7 +42,7 @@ class RelatorioController extends Controller
     {
         Excel::import(new RelatoriosImport,request()->file('file'));
            
-        return back();
+        return back()->with('success','Relatório importado com sucesso');
     }
 
 }

@@ -26,12 +26,12 @@ class RelatoriosImport implements ToModel, WithStartRow
         return new Relatorio([
             'id_reg'        =>  $row[0],
             'nome'          =>  $row[1],
-            'data_nasc'     =>  $row[2],
+            'data_nasc'     =>  \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[2]),
             'email'         =>  $row[3],
             'estado'        =>  $row[4],
             'cidade'        =>  $row[5],
             'endereco'      =>  $row[6],
-            'data_cadastro' =>  $row[7]
+            'data_cadastro' =>  \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[7]),
         ]);
     }
 }
