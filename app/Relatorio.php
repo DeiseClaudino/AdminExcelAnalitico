@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Relatorio extends Model
 {
     protected $primaryKey = 'id_reg';
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *

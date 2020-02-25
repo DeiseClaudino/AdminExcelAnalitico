@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Relatorio;
 use Illuminate\Http\Request;
+use App\Imports\RelatoriosImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RelatorioController extends Controller
 {
@@ -30,6 +32,16 @@ class RelatorioController extends Controller
     public function uploadExcel()
     {
         return view('uploadExcel');
+    }
+
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function import() 
+    {
+        Excel::import(new RelatoriosImport,request()->file('file'));
+           
+        return back();
     }
 
 }

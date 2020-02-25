@@ -18,11 +18,15 @@
             faça o upload de sua planilha clicando na àrea abaixo, mas <strong>ATENÇÃO</strong> 
             os formatos aceitos são: <strong>xlsx, xls, csv</strong></p>
             <div class="custom-file">
-                <input type="file" accept=".xlsx, .xls, .csv" class="custom-file-input" id="uploadExcel">
-                <label class="custom-file-label" for="uploadExcel">Importar Excel</label>
+                <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" accept=".xlsx, .xls, .csv" name="file" class="custom-file-input" id="uploadExcel">
+                    <label class="custom-file-label" for="uploadExcel">Importar Excel</label>
+
+                    <br><br>
+                    <button class="btn btn-primary">Enviar</button>
+                </form>
             </div>
-            <br><br>
-            <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
     </div>
 </div>

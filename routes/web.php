@@ -20,3 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/analytics', 'RelatorioController@listRelatorio');
 Route::get('/analytics/upload', 'RelatorioController@uploadExcel');
+Route::post('/analytics/import', 'RelatorioController@import')->name('import');
