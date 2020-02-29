@@ -22,7 +22,7 @@ class RelatoriosImport implements ToModel, WithStartRow
     * @return \Illuminate\Database\Eloquent\Model|null
     */
     public function model(array $row)
-    {
+    {    
         return new Relatorio([
             'id_reg'        =>  $row[0],
             'nome'          =>  $row[1],
@@ -31,7 +31,7 @@ class RelatoriosImport implements ToModel, WithStartRow
             'estado'        =>  $row[4],
             'cidade'        =>  $row[5],
             'endereco'      =>  $row[6],
-            'data_cadastro' =>  \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[7]),
-        ]);
+            'data_cadastro' =>  \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[7])
+        ]);  
     }
 }
