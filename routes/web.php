@@ -18,6 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/analytics', 'RelatorioController@listRelatorio');
-Route::get('/analytics/upload', 'RelatorioController@uploadExcel');
-Route::post('/analytics/import', 'RelatorioController@import')->name('import');
+Route::prefix('analytics')->group(function () {
+    Route::get('/', 'RelatorioController@listRelatorio');
+    Route::get('upload', 'RelatorioController@uploadExcel');
+    Route::post('import', 'RelatorioController@import')->name('import');
+    Route::get('/chart', 'RelatorioController@cadastradosChart');
+});

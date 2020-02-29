@@ -19,6 +19,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    {{-- ChartStyle --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 </head>
 <body>
     <div id="app">
@@ -56,6 +59,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/analytics/chart">
+                                        Ver Gráfico
+                                    </a>
                                     <a class="dropdown-item" href="/analytics/upload">
                                         Importar Excel
                                     </a>
@@ -83,5 +89,11 @@
             @yield('content')
         </main>
     </div>
+    
+    {{-- ChartScript --}}
+    @if($relatorioChart ?? '')
+    {!! $relatorioChart->script() !!}
+    @endif
+
 </body>
 </html>
