@@ -70,7 +70,7 @@ class RelatorioController extends Controller
         $colors = $this->colorCharts();
 
         $relatorioChart = new RelatorioChart;
-        $relatorioChart->minimalist(true);
+        $relatorioChart->minimalist(false);
         $relatorioChart->labels($anos);
         $relatorioChart->dataset('Usuários Cadastrados por ano', 'bar', $values)
         ->color($colors['borderColors'])
@@ -78,9 +78,7 @@ class RelatorioController extends Controller
 
         return view('analytics')->withRelatorioChart($relatorioChart);
 
-
     }
-
 
     public function colorCharts()
     {
